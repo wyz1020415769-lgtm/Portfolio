@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Python开发者作品集 - 专注消息中间件、实时数据处理、高可用架构设计" data-i18n="meta.description">
+    <meta name="keywords" content="Python开发, 消息中间件, 实时数据处理, 高可用架构, MongoDB, ElasticSearch, Rust, 分布式系统" data-i18n="meta.keywords">
+    <title data-i18n="meta.title">张开发 - Python Developer | 作品集</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="i18n.js"></script>
+    <script src="theme.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>张开发</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link" data-i18n="nav.home">首页</a></li>
+                    <li><a href="#about" class="nav-link" data-i18n="nav.about">关于我</a></li>
+                    <li><a href="#projects" class="nav-link" data-i18n="nav.projects">项目</a></li>
+                    <li><a href="#contact" class="nav-link" data-i18n="nav.contact">联系</a></li>
+                </ul>
+                <div class="language-switcher">
+                    <button class="language-btn active" data-lang="zh" onclick="switchLanguage('zh')">中文</button>
+                    <button class="language-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
+                </div>
+                <div class="theme-switcher">
+                    <button class="theme-btn" id="theme-toggle" onclick="toggleTheme()" title="切换主题">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2 class="hero-title" data-i18n="hero.title">构建高性能分布式系统的艺术</h2>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">Python Developer | 专注消息中间件、实时数据处理、高可用架构设计 | 将技术热情转化为优雅的解决方案</p>
+                <button class="cta-button" onclick="scrollToSection('projects')" data-i18n="hero.cta">查看我的作品</button>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title" data-i18n="about.title">关于我</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p data-i18n="about.description1">我是张开发，一名专注于Python后端开发的工程师，拥有丰富的消息中间件和实时数据处理经验。擅长构建高可用、高性能的分布式系统架构，热衷于探索Rust语言的系统编程魅力。</p>
+                        <p data-i18n="about.description2">在工作之余，我喜欢追番：《幸运星》、《孤独摇滚》、《摇曳露营》都是我的最爱。我相信优秀的代码如同优秀的动画一样，都需要精心的设计和反复的打磨。</p>
+                        
+                        <!-- 专业经历时间线 -->
+                        <div class="education-timeline">
+                            <h3 data-i18n="about.experience">专业经历</h3>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">2021-2023</div>
+                                    <div class="timeline-content">
+                                    <h4 data-i18n="experience.openai.title">OpenAI - 软件工程师</h4>
+                                    <p data-i18n="experience.openai.desc">参与大规模AI系统的架构设计和优化，负责分布式训练平台的开发和维护</p>
+                                </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">2017-2020</div>
+                                    <div class="timeline-content">
+                                    <h4 data-i18n="experience.google.title">Google - 软件工程师</h4>
+                                    <p data-i18n="experience.google.desc">负责后端服务架构设计，优化大规模数据处理系统的性能和可靠性</p>
+                                </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">2014-2016</div>
+                                    <div class="timeline-content">
+                                    <h4 data-i18n="experience.stanford.title">斯坦福大学 - 计算机科学硕士</h4>
+                                    <p data-i18n="experience.stanford.desc">专攻分布式系统和机器学习，GPA 3.9/4.0</p>
+                                </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">2010-2014</div>
+                                    <div class="timeline-content">
+                                    <h4 data-i18n="experience.tsinghua.title">清华大学 - 计算机科学学士</h4>
+                                    <p data-i18n="experience.tsinghua.desc">优秀毕业生，专业排名前5%，获得多项学术奖学金</p>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                         
+                         <!-- 个人成就 -->
+                         <div class="achievements">
+                             <h3 data-i18n="achievements.title">个人成就</h3>
+                             <div class="achievement-tags">
+                                 <span class="achievement-tag" data-i18n="achievements.tsinghua">🏆 清华大学优秀毕业生</span>
+                                 <span class="achievement-tag" data-i18n="achievements.mvp">💎 微软MVP</span>
+                                 <span class="achievement-tag" data-i18n="achievements.huawei">🔧 华为开发者认证</span>
+                             </div>
+                         </div>
+                         
+                         <div class="skills">
+                            <h3 data-i18n="skills.title">技能</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag expert" data-i18n="skills.python">Python</span>
+                                <span class="skill-tag expert" data-i18n="skills.mongodb">MongoDB</span>
+                                <span class="skill-tag intermediate" data-i18n="skills.nextjs">Next.js</span>
+                                <span class="skill-tag intermediate" data-i18n="skills.elasticsearch">ElasticSearch</span>
+                                <span class="skill-tag intermediate" data-i18n="skills.middleware">消息中间件</span>
+                                <span class="skill-tag intermediate" data-i18n="skills.data_processing">实时数据处理</span>
+                                <span class="skill-tag beginner" data-i18n="skills.rust">Rust</span>
+                                <span class="skill-tag beginner" data-i18n="skills.architecture">高可用架构</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://pic2.zhimg.com/v2-ecf3d53bc6edee6b9b5488e1e3d16b25_b.jpg" alt="个人照片"
+                            class="profile-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title" data-i18n="projects.title">我的项目</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop"
+                                alt="项目1">
+                        </div>
+                        <div class="project-info">
+                            <h3 data-i18n="projects.project1.title">分布式消息中间件系统</h3>
+                            <p data-i18n="projects.project1.desc">基于Python开发的高性能消息队列系统，支持百万级并发、消息持久化、分布式集群部署。采用异步IO和内存映射技术，实现毫秒级消息传递。</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Redis</span>
+                                <span class="tech-tag">RabbitMQ</span>
+                                <span class="tech-tag">Docker</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="demo/task-manager.html" class="project-link" target="_blank" data-i18n="projects.demo">查看演示</a>
+                                <a href="#source-code" class="project-link" data-source="task-manager" data-i18n="projects.source">源代码</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=250&fit=crop"
+                                alt="项目2">
+                        </div>
+                        <div class="project-info">
+                            <h3 data-i18n="projects.project2.title">实时数据流处理平台</h3>
+                            <p data-i18n="projects.project2.desc">基于Python和ElasticSearch的实时数据分析平台，支持TB级数据实时处理、复杂事件处理、实时告警。采用微服务架构，实现高吞吐量和低延迟的数据处理。</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">ElasticSearch</span>
+                                <span class="tech-tag">Kafka</span>
+                                <span class="tech-tag">Kubernetes</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="demo/fitness-tracker.html" class="project-link" target="_blank" data-i18n="projects.demo">查看演示</a>
+                                <a href="#source-code" class="project-link" data-source="fitness-tracker" data-i18n="projects.source">源代码</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop"
+                                alt="项目4">
+                        </div>
+                        <div class="project-info">
+                            <h3 data-i18n="projects.project3.title">MongoDB数据管理工具</h3>
+                            <p data-i18n="projects.project3.desc">企业级MongoDB数据库管理和监控工具，支持集群管理、性能优化、数据备份恢复。提供直观的Web界面，简化数据库运维工作。</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">Docker</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="demo/chatbot.html" class="project-link" target="_blank" data-i18n="projects.demo">查看演示</a>
+                                <a href="#source-code" class="project-link" data-source="chatbot" data-i18n="projects.source">源代码</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title" data-i18n="contact.title">联系我</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                            <h3 data-i18n="contact.info">联系方式</h3>
+                            <div class="contact-item">
+                                <span class="contact-label" data-i18n="contact.email">邮箱：</span>
+                                <span class="contact-value">1020415769@qq.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-label" data-i18n="contact.phone">电话：</span>
+                                <span class="contact-value">+86 138 0000 0000</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-label" data-i18n="contact.wechat">微信：</span>
+                                <span class="contact-value">zhangkaifa_dev</span>
+                            </div>
+                        <div class="social-links">
+                            <a href="#" class="social-link" data-i18n="contact.github">GitHub</a>
+                            <a href="#" class="social-link" data-i18n="contact.linkedin">LinkedIn</a>
+                            <a href="#" class="social-link" data-i18n="contact.zhihu">知乎</a>
+                            <a href="#" class="social-link" data-i18n="contact.juejin">掘金</a>
+                        </div>
+                    </div>
+                    <form class="contact-form" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name" data-i18n="contact.form.name">姓名</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-i18n="contact.form.email">邮箱</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-i18n="contact.form.message">留言</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button" data-i18n="contact.form.submit">发送消息</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p data-i18n="footer.text">&copy; 2024 张开发 - Python Developer. 保留所有权利 | 用心编码，创造价值</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

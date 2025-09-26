@@ -1,0 +1,46 @@
+# 图片资源文件夹
+
+此文件夹用于存放网站所需的图片资源。
+
+## ? 图片已更新
+
+**所有占位图片已替换为来自 Unsplash 的高质量图片！**
+
+### 当前使用的图片：
+- **个人头像**: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face
+- **项目1 (编程)**: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop
+- **项目2 (移动应用)**: https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=250&fit=crop
+- **项目3 (数据分析)**: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop
+
+## 建议的图片文件
+
+- `profile.jpg` - 个人头像（建议尺寸：300x300px）
+- `project1.jpg` - 项目1展示图（建议尺寸：400x250px）
+- `project2.jpg` - 项目2展示图（建议尺寸：400x250px）
+- `project3.jpg` - 项目3展示图（建议尺寸：400x250px）
+
+## 图片使用说明
+
+1. 建议使用高质量的图片文件
+2. 图片格式推荐：JPG、PNG、WebP
+3. 注意图片文件大小，避免过大影响加载速度
+4. 保持图片命名的一致性
+5. 建议对图片进行适当的压缩优化
+
+## 获取图片资源
+
+您可以从以下网站获取免费的高质量图片：
+- **Unsplash** (https://unsplash.com) - 免费高质量摄影作品
+- **Pexels** (https://pexels.com) - 免费照片和视频
+- **Pixabay** (https://pixabay.com) - 免费图片、插画、矢量图
+
+## 图片优势
+
+? **已使用的Unsplash图片特点：**
+- 专业摄影师拍摄，质量极高
+- 现代感强，适合作品集网站
+- 与编程主题完美匹配
+- 免费商用，无需担心版权问题
+- 通过URL参数优化尺寸和裁剪
+
+如需更换图片，请参考 `image_sources.md` 文件中的详细说明。

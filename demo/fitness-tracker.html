@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运动健身追踪器 - 演示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .demo-header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .demo-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .demo-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .demo-content {
+            padding: 40px;
+        }
+
+        .fitness-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .dashboard-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            color: #495057;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin-bottom: 5px;
+        }
+
+        .card-unit {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .ai-recommendation {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border: 2px solid #2196f3;
+        }
+
+        .ai-recommendation h3 {
+            color: #1976d2;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .recommendation-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #2196f3;
+        }
+
+        .exercise-plan {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .exercise-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+            text-align: center;
+        }
+
+        .exercise-name {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 5px;
+        }
+
+        .exercise-details {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .charts-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .chart-container {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+            text-align: center;
+        }
+
+        .chart-container h4 {
+            color: #495057;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .chart-placeholder {
+            height: 200px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .activity-timeline {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+            margin-bottom: 30px;
+        }
+
+        .activity-timeline h3 {
+            color: #495057;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid #ff6b6b;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #ff6b6b;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 5px;
+        }
+
+        .timeline-time {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .demo-features {
+            background: #fff3e0;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .demo-features h3 {
+            color: #ef6c00;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item h4 {
+            color: #ef6c00;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            color: #424242;
+            font-size: 0.9rem;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #5a6268;
+        }
+
+        @media (max-width: 768px) {
+            .demo-header h1 {
+                font-size: 2rem;
+            }
+
+            .demo-content {
+                padding: 20px;
+            }
+
+            .fitness-dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .charts-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1>🏃‍♂️ 智能健身追踪器</h1>
+            <p>基于React Native + Firebase + TensorFlow.js + Chart.js 的AI驱动健身应用</p>
+        </div>
+
+        <div class="demo-content">
+            <div class="fitness-dashboard">
+                <div class="dashboard-card">
+                    <div class="card-icon">🔥</div>
+                    <div class="card-title">今日卡路里</div>
+                    <div class="card-value">485</div>
+                    <div class="card-unit">千卡</div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-icon">👟</div>
+                    <div class="card-title">步数统计</div>
+                    <div class="card-value">8,247</div>
+                    <div class="card-unit">步</div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-icon">⏱️</div>
+                    <div class="card-title">运动时长</div>
+                    <div class="card-value">45</div>
+                    <div class="card-unit">分钟</div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-icon">💪</div>
+                    <div class="card-title">训练强度</div>
+                    <div class="card-value">7.2</div>
+                    <div class="card-unit">级</div>
+                </div>
+            </div>
+
+            <div class="ai-recommendation">
+                <h3>🤖 AI智能推荐</h3>
+                <div class="recommendation-content">
+                    <p><strong>基于您的健身数据和目标，AI为您推荐今日训练计划：</strong></p>
+                    <div class="exercise-plan">
+                        <div class="exercise-item">
+                            <div class="exercise-name">🏃‍♂️ 有氧训练</div>
+                            <div class="exercise-details">慢跑 30分钟 | 中等强度</div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-name">💪 力量训练</div>
+                            <div class="exercise-details">俯卧撑 3组×15次 | 高强度</div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-name">🧘‍♀️ 拉伸放松</div>
+                            <div class="exercise-details">瑜伽拉伸 15分钟 | 低强度</div>
+                        </div>
+                        <div class="exercise-item">
+                            <div class="exercise-name">🥗 营养建议</div>
+                            <div class="exercise-details">蛋白质 120g | 碳水 200g</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="charts-section">
+                <div class="chart-container">
+                    <h4>📈 一周运动趋势</h4>
+                    <div class="chart-placeholder">
+                        <span>动态图表展示区域<br>基于Chart.js实现实时数据可视化</span>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h4>📊 卡路里消耗分析</h4>
+                    <div class="chart-placeholder">
+                        <span>饼图展示不同运动类型的<br>卡路里消耗比例分布</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity-timeline">
+                <h3>⏰ 今日活动记录</h3>
+                <div class="timeline-item">
+                    <div class="timeline-icon">🏃‍♂️</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">晨跑锻炼</div>
+                        <div class="timeline-time">07:30 - 08:00 | 30分钟 | 消耗 180千卡</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">🚶‍♂️</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">步行上班</div>
+                        <div class="timeline-time">08:30 - 08:45 | 15分钟 | 消耗 45千卡</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">🏋️‍♂️</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">力量训练</div>
+                        <div class="timeline-time">18:00 - 18:30 | 30分钟 | 消耗 260千卡</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-features">
+                <h3>🚀 核心功能特性</h3>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h4>🤖 AI智能分析</h4>
+                        <p>TensorFlow.js机器学习算法分析用户运动数据，提供个性化健身建议</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>📱 跨平台同步</h4>
+                        <p>React Native开发，支持iOS/Android双平台，数据云端实时同步</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>📊 数据可视化</h4>
+                        <p>Chart.js动态图表展示运动趋势，直观了解健身进展</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🔔 智能提醒</h4>
+                        <p>基于用户习惯的智能运动提醒，帮助养成良好健身习惯</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🎯 目标管理</h4>
+                        <p>设定个人健身目标，AI算法跟踪进度并提供调整建议</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>👥 社交分享</h4>
+                        <p>运动成果分享到社交平台，与朋友一起挑战健身目标</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="../index.html" class="back-btn">← 返回作品集</a>
+        </div>
+    </div>
+
+    <script>
+        // 简单的交互功能演示
+        document.querySelectorAll('.dashboard-card').forEach(card => {
+            card.addEventListener('click', function () {
+                const title = this.querySelector('.card-title').textContent;
+                alert(`查看${title}详细数据（演示版本）`);
+            });
+        });
+
+        document.querySelectorAll('.exercise-item').forEach(item => {
+            item.addEventListener('click', function () {
+                const exercise = this.querySelector('.exercise-name').textContent;
+                alert(`开始${exercise}训练（演示版本）`);
+            });
+        });
+
+        // 模拟实时数据更新
+        setInterval(() => {
+            const stepElement = document.querySelector('.card-value');
+            if (stepElement && stepElement.textContent.includes(',')) {
+                const currentSteps = parseInt(stepElement.textContent.replace(',', ''));
+                const newSteps = currentSteps + Math.floor(Math.random() * 10);
+                stepElement.textContent = newSteps.toLocaleString();
+            }
+        }, 5000);
+    </script>
+</body>
+
+</html>

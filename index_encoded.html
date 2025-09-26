@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="&#20840;&#26632;&#24320;&#21457;&#24037;&#31243;&#24072;&#20316;&#21697;&#38598; - &#23637;&#31034;&#21019;&#26032;&#30340;Web&#24212;&#29992;&#12289;&#31227;&#21160;&#24212;&#29992;&#21644;&#25968;&#25454;&#20998;&#26512;&#39033;&#30446;">
+    <meta name="keywords"
+        content="&#20840;&#26632;&#24320;&#21457;, Web&#24320;&#21457;, &#31227;&#21160;&#24212;&#29992;, &#25968;&#25454;&#20998;&#26512;, React, Node.js, JavaScript, &#21069;&#31471;&#24320;&#21457;, &#21518;&#31471;&#24320;&#21457;">
+    <title>&#24352;&#24320;&#21457; - &#20840;&#26632;&#24320;&#21457;&#24037;&#31243;&#24072; |
+        &#20316;&#21697;&#38598;</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>&#24352;&#24320;&#21457;</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">&#39318;&#39029;</a></li>
+                    <li><a href="#about" class="nav-link">&#20851;&#20110;&#25105;</a></li>
+                    <li><a href="#projects" class="nav-link">&#39033;&#30446;</a></li>
+                    <li><a href="#contact" class="nav-link">&#32852;&#31995;</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2 class="hero-title">
+                    &#26500;&#24314;&#25968;&#23383;&#19990;&#30028;&#30340;&#26080;&#38480;&#21487;&#33021;</h2>
+                <p class="hero-subtitle">&#20840;&#26632;&#24320;&#21457;&#24037;&#31243;&#24072; |
+                    &#19987;&#27880;React&#29983;&#24577;&#19982;Node.js&#21518;&#31471; |
+                    &#23558;&#21019;&#24847;&#36716;&#21270;&#20026;&#20248;&#38597;&#30340;&#25216;&#26415;&#35299;&#20915;&#26041;&#26696;
+                </p>
+                <button class="cta-button"
+                    onclick="scrollToSection('projects')">&#26597;&#30475;&#25105;&#30340;&#20316;&#21697;</button>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">&#20851;&#20110;&#25105;</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>&#25105;&#26159;&#24352;&#24320;&#21457;&#65292;&#19968;&#21517;&#28909;&#24773;&#30340;&#20840;&#26632;&#24320;&#21457;&#32773;&#65292;&#25317;&#26377;5&#24180;&#20197;&#19978;Web&#24320;&#21457;&#32463;&#39564;&#12290;&#25105;&#19987;&#27880;&#20110;&#26500;&#24314;&#39640;&#24615;&#33021;&#12289;&#29992;&#25143;&#21451;&#22909;&#30340;&#25968;&#23383;&#20135;&#21697;&#65292;&#20174;&#27010;&#24565;&#35774;&#35745;&#21040;&#37096;&#32626;&#19978;&#32447;&#65292;&#20139;&#21463;&#25972;&#20010;&#24320;&#21457;&#36807;&#31243;&#20013;&#30340;&#27599;&#19968;&#20010;&#25361;&#25112;&#12290;
+                        </p>
+                        <p>&#25105;&#30340;&#24320;&#21457;&#29702;&#24565;&#26159;&#65306;&#20195;&#30721;&#19981;&#20165;&#20165;&#26159;&#21151;&#33021;&#30340;&#23454;&#29616;&#65292;&#26356;&#26159;&#33402;&#26415;&#30340;&#34920;&#36798;&#12290;&#27599;&#19968;&#20010;&#39033;&#30446;&#37117;&#26159;&#23545;&#23436;&#32654;&#30340;&#36861;&#27714;&#21644;&#23545;&#29992;&#25143;&#20307;&#39564;&#30340;&#26497;&#33268;&#20851;&#27880;&#12290;
+                        </p>
+                        <div class="skills">
+                            <h3>&#25216;&#33021;</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">React & Next.js</span>
+                                <span class="skill-tag">Node.js & Express</span>
+                                <span class="skill-tag">TypeScript</span>
+                                <span class="skill-tag">MongoDB & PostgreSQL</span>
+                                <span class="skill-tag">AWS & Docker</span>
+                                <span class="skill-tag">UI/UX&#35774;&#35745;</span>
+                                <span class="skill-tag">&#25935;&#25463;&#24320;&#21457;</span>
+                                <span class="skill-tag">Git & CI/CD</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face"
+                            alt="&#20010;&#20154;&#29031;&#29255;" class="profile-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2 class="section-title">&#25105;&#30340;&#39033;&#30446;</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop"
+                                alt="椤圭洰1">
+                        </div>
+                        <div class="project-info">
+                            <h3>&#26234;&#33021;&#20219;&#21153;&#31649;&#29702;&#31995;&#32479;</h3>
+                            <p>&#22522;&#20110;React&#21644;Node.js&#24320;&#21457;&#30340;&#20840;&#26632;&#20219;&#21153;&#31649;&#29702;&#24212;&#29992;&#65292;&#25903;&#25345;&#23454;&#26102;&#21327;&#20316;&#12289;&#26234;&#33021;&#20998;&#31867;&#21644;&#36827;&#24230;&#36319;&#36394;&#12290;&#20351;&#29992;MongoDB&#23384;&#20648;&#25968;&#25454;&#65292;&#23454;&#29616;&#29992;&#25143;&#35748;&#35777;&#21644;&#26435;&#38480;&#31649;&#29702;&#31561;&#20225;&#19994;&#32423;&#21151;&#33021;&#12290;
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">Socket.io</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">&#26597;&#30475;&#28436;&#31034;</a>
+                                <a href="#" class="project-link">&#28304;&#20195;&#30721;</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=250&fit=crop"
+                                alt="椤圭洰2">
+                        </div>
+                        <div class="project-info">
+                            <h3>&#31227;&#21160;&#20581;&#36523;&#36861;&#36394;&#22120;</h3>
+                            <p>&#37319;&#29992;React
+                                Native&#24320;&#21457;&#30340;&#36328;&#24179;&#21488;&#31227;&#21160;&#20581;&#36523;&#24212;&#29992;&#65292;&#20855;&#22791;AI&#26234;&#33021;&#36816;&#21160;&#25512;&#33616;&#21151;&#33021;&#12290;&#25903;&#25345;&#23454;&#26102;&#36816;&#21160;&#36319;&#36394;&#12289;&#20581;&#24247;&#25968;&#25454;&#20998;&#26512;&#65292;&#25552;&#20379;&#20010;&#24615;&#21270;&#30340;&#20581;&#36523;&#35745;&#21010;&#21644;&#33829;&#20859;&#24314;&#35758;&#12290;
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React Native</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">TensorFlow.js</span>
+                                <span class="tech-tag">Chart.js</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">&#26597;&#30475;&#28436;&#31034;</a>
+                                <a href="#" class="project-link">&#28304;&#20195;&#30721;</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop"
+                                alt="椤圭洰3">
+                        </div>
+                        <div class="project-info">
+                            <h3>&#25968;&#25454;&#21487;&#35270;&#21270;&#20998;&#26512;&#24179;&#21488;</h3>
+                            <p>&#20225;&#19994;&#32423;&#25968;&#25454;&#20998;&#26512;&#19982;&#21487;&#35270;&#21270;&#24179;&#21488;&#65292;&#25903;&#25345;&#22810;&#32500;&#24230;&#25968;&#25454;&#20998;&#26512;&#12289;&#23454;&#26102;&#20202;&#34920;&#30424;&#21644;&#33258;&#23450;&#20041;&#25253;&#34920;&#29983;&#25104;&#12290;&#37319;&#29992;&#24494;&#26381;&#21153;&#26550;&#26500;&#65292;&#33021;&#22815;&#22788;&#29702;&#28023;&#37327;&#25968;&#25454;&#65292;&#25552;&#20379;&#30452;&#35266;&#30340;&#20132;&#20114;&#24335;&#25968;&#25454;&#25506;&#32034;&#20307;&#39564;&#12290;
+                            </p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Docker</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">&#26597;&#30475;&#28436;&#31034;</a>
+                                <a href="#" class="project-link">&#28304;&#20195;&#30721;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">&#32852;&#31995;&#25105;</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>&#32852;&#31995;&#26041;&#24335;</h3>
+                        <div class="contact-item">
+                            <span class="contact-label">&#37038;&#31665;&#65306;</span>
+                            <span class="contact-value">1020415769@qq.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">&#30005;&#35805;&#65306;</span>
+                            <span class="contact-value">+86 123 4567 8900</span>
+                        </div>
+                        <div class="social-links">
+                            <a href="#" class="social-link">GitHub</a>
+                            <a href="#" class="social-link">LinkedIn</a>
+                            <a href="#" class="social-link">Twitter</a>
+                        </div>
+                    </div>
+                    <form class="contact-form" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">&#22995;&#21517;</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">&#37038;&#31665;</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">&#30041;&#35328;</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">&#21457;&#36865;&#28040;&#24687;</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 &#25105;&#30340;&#20316;&#21697;&#38598;. &#20445;&#30041;&#25152;&#26377;&#26435;&#21033;.
+            </p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

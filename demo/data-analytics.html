@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据可视化分析平台 - 演示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .demo-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .demo-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .demo-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .demo-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .demo-content {
+            padding: 40px;
+        }
+
+        .kpi-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .kpi-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .kpi-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .kpi-title {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .kpi-value {
+            font-size: 2.8rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .kpi-change {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .kpi-change.positive {
+            color: #28a745;
+        }
+
+        .kpi-change.negative {
+            color: #dc3545;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .chart-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .chart-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .chart-title {
+            color: #495057;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .chart-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chart-btn {
+            padding: 8px 12px;
+            border: 1px solid #dee2e6;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .chart-btn:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .chart-placeholder {
+            height: 300px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chart-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .data-table {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+            margin-bottom: 40px;
+        }
+
+        .data-table h3 {
+            color: #495057;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .status-active {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-inactive {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .real-time-panel {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #4caf50;
+            margin-bottom: 40px;
+        }
+
+        .real-time-panel h3 {
+            color: #2e7d32;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .live-indicator {
+            width: 12px;
+            height: 12px;
+            background: #4caf50;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .metric-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .metric-label {
+            color: #424242;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .metric-value {
+            color: #2e7d32;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .demo-features {
+            background: #f3e5f5;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .demo-features h3 {
+            color: #7b1fa2;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #9c27b0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item h4 {
+            color: #7b1fa2;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            color: #424242;
+            font-size: 0.9rem;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #5a6268;
+        }
+
+        @media (max-width: 768px) {
+            .demo-header h1 {
+                font-size: 2rem;
+            }
+
+            .demo-content {
+                padding: 20px;
+            }
+
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .kpi-dashboard {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1>📊 企业级数据可视化平台</h1>
+            <p>基于Vue.js + Python + PostgreSQL + Docker 构建的微服务架构数据分析系统</p>
+        </div>
+
+        <div class="demo-content">
+            <div class="kpi-dashboard">
+                <div class="kpi-card">
+                    <div class="kpi-icon">👥</div>
+                    <div class="kpi-title">总用户数</div>
+                    <div class="kpi-value">24,567</div>
+                    <div class="kpi-change positive">↗ +12.5%</div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon">📈</div>
+                    <div class="kpi-title">月收入</div>
+                    <div class="kpi-value">¥1.2M</div>
+                    <div class="kpi-change positive">↗ +8.3%</div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon">🎯</div>
+                    <div class="kpi-title">转化率</div>
+                    <div class="kpi-value">3.8%</div>
+                    <div class="kpi-change negative">↘ -0.5%</div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon">⭐</div>
+                    <div class="kpi-title">满意度</div>
+                    <div class="kpi-value">4.7</div>
+                    <div class="kpi-change positive">↗ +0.2</div>
+                </div>
+            </div>
+
+            <div class="real-time-panel">
+                <h3><span class="live-indicator"></span> 实时数据监控</h3>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <div class="metric-label">当前在线用户</div>
+                        <div class="metric-value">1,247</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">API调用次数/秒</div>
+                        <div class="metric-value">342</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">数据处理量</div>
+                        <div class="metric-value">2.1GB</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-label">系统响应时间</div>
+                        <div class="metric-value">124ms</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h4 class="chart-title">📈 用户增长趋势</h4>
+                        <div class="chart-actions">
+                            <button class="chart-btn">日</button>
+                            <button class="chart-btn">周</button>
+                            <button class="chart-btn active">月</button>
+                            <button class="chart-btn">年</button>
+                        </div>
+                    </div>
+                    <div class="chart-placeholder">
+                        <span>用户增长趋势图表<br>支持多维度时间分析</span>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h4 class="chart-title">📊 收入来源分析</h4>
+                        <div class="chart-actions">
+                            <button class="chart-btn">饼图</button>
+                            <button class="chart-btn active">柱状图</button>
+                            <button class="chart-btn">折线图</button>
+                        </div>
+                    </div>
+                    <div class="chart-placeholder">
+                        <span>收入来源分布图表<br>多图表类型切换</span>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h4 class="chart-title">🗺️ 地域分布热力图</h4>
+                        <div class="chart-actions">
+                            <button class="chart-btn">世界</button>
+                            <button class="chart-btn active">中国</button>
+                            <button class="chart-btn">省份</button>
+                        </div>
+                    </div>
+                    <div class="chart-placeholder">
+                        <span>交互式地理热力图<br>支持多级地理钻取</span>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h4 class="chart-title">⚡ 实时性能监控</h4>
+                        <div class="chart-actions">
+                            <button class="chart-btn">CPU</button>
+                            <button class="chart-btn active">内存</button>
+                            <button class="chart-btn">网络</button>
+                        </div>
+                    </div>
+                    <div class="chart-placeholder">
+                        <span>系统性能实时监控<br>自动告警机制</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="data-table">
+                <h3>📋 核心业务数据</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>业务指标</th>
+                                <th>当前值</th>
+                                <th>目标值</th>
+                                <th>完成率</th>
+                                <th>状态</th>
+                                <th>趋势</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>新用户注册</td>
+                                <td><strong>1,247</strong></td>
+                                <td>1,500</td>
+                                <td><span style="color: #28a745;">83.1%</span></td>
+                                <td><span class="status-badge status-active">正常</span></td>
+                                <td><span style="color: #28a745;">↗ +15.2%</span></td>
+                            </tr>
+                            <tr>
+                                <td>用户活跃度</td>
+                                <td><strong>68.5%</strong></td>
+                                <td>75%</td>
+                                <td><span style="color: #ffc107;">91.3%</span></td>
+                                <td><span class="status-badge status-pending">关注</span></td>
+                                <td><span style="color: #dc3545;">↘ -2.1%</span></td>
+                            </tr>
+                            <tr>
+                                <td>付费转化</td>
+                                <td><strong>3.8%</strong></td>
+                                <td>4.5%</td>
+                                <td><span style="color: #ffc107;">84.4%</span></td>
+                                <td><span class="status-badge status-pending">关注</span></td>
+                                <td><span style="color: #28a745;">↗ +0.3%</span></td>
+                            </tr>
+                            <tr>
+                                <td>客户满意度</td>
+                                <td><strong>4.7/5</strong></td>
+                                <td>4.5/5</td>
+                                <td><span style="color: #28a745;">104.4%</span></td>
+                                <td><span class="status-badge status-active">优秀</span></td>
+                                <td><span style="color: #28a745;">↗ +0.2</span></td>
+                            </tr>
+                            <tr>
+                                <td>系统可用性</td>
+                                <td><strong>99.9%</strong></td>
+                                <td>99.5%</td>
+                                <td><span style="color: #28a745;">100.4%</span></td>
+                                <td><span class="status-badge status-active">优秀</span></td>
+                                <td><span style="color: #28a745;">→ 0%</span></td>
+                            </tr>
+                            <tr>
+                                <td>响应时间</td>
+                                <td><strong>124ms</strong></td>
+                                <td>200ms</td>
+                                <td><span style="color: #28a745;">62.0%</span></td>
+                                <td><span class="status-badge status-active">优秀</span></td>
+                                <td><span style="color: #28a745;">↗ -12ms</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="demo-features">
+                <h3>🚀 核心功能特性</h3>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h4>🏗️ 微服务架构</h4>
+                        <p>基于Docker容器化部署，支持弹性扩展和高可用性</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>📊 多维度分析</h4>
+                        <p>支持时间、地域、用户行为等多维度数据分析和钻取</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>⚡ 实时处理</h4>
+                        <p>Python高性能数据处理引擎，支持大规模数据实时分析</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🔒 安全认证</h4>
+                        <p>企业级权限管理和数据加密，确保数据安全性</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>📱 响应式设计</h4>
+                        <p>Vue.js构建的响应式界面，完美适配各种设备</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🔄 自动化报表</h4>
+                        <p>定时生成和推送各类业务报表，支持自定义模板</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="../index.html" class="back-btn">← 返回作品集</a>
+        </div>
+    </div>
+
+    <script>
+        // 简单的交互功能演示
+        document.querySelectorAll('.chart-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const siblings = this.parentElement.querySelectorAll('.chart-btn');
+                siblings.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const chartTitle = this.closest('.chart-card').querySelector('.chart-title').textContent;
+                const action = this.textContent;
+                alert(`切换${chartTitle}到${action}视图（演示版本）`);
+            });
+        });
+
+        // KPI卡片点击事件
+        document.querySelectorAll('.kpi-card').forEach(card => {
+            card.addEventListener('click', function () {
+                const title = this.querySelector('.kpi-title').textContent;
+                alert(`查看${title}详细分析（演示版本）`);
+            });
+        });
+
+        // 表格行点击事件
+        document.querySelectorAll('tbody tr').forEach(row => {
+            row.addEventListener('click', function () {
+                const metric = this.cells[0].textContent;
+                alert(`查看${metric}详细数据（演示版本）`);
+            });
+        });
+
+        // 模拟实时数据更新
+        setInterval(() => {
+            const onlineUsers = document.querySelector('.metric-value');
+            if (onlineUsers && onlineUsers.textContent.includes(',')) {
+                const currentUsers = parseInt(onlineUsers.textContent.replace(',', ''));
+                const newUsers = currentUsers + Math.floor(Math.random() * 20) - 10;
+                onlineUsers.textContent = Math.max(1000, newUsers).toLocaleString();
+            }
+        }, 3000);
+    </script>
+</body>
+
+</html>

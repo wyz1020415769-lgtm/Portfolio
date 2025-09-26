@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能任务管理系统 - 演示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .demo-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .demo-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .demo-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .demo-content {
+            padding: 40px;
+        }
+
+        .task-manager-demo {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .task-input-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+        }
+
+        .task-input-section h3 {
+            color: #495057;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .task-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .task-form input,
+        .task-form select,
+        .task-form textarea {
+            padding: 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .task-form input:focus,
+        .task-form select:focus,
+        .task-form textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn-add-task {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-add-task:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .task-list-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+        }
+
+        .task-list-section h3 {
+            color: #495057;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .task-filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: 2px solid #dee2e6;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .task-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .task-item {
+            background: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .task-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .task-item.completed {
+            opacity: 0.7;
+            border-left-color: #28a745;
+        }
+
+        .task-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .task-title {
+            font-weight: 600;
+            color: #2c3e50;
+            flex: 1;
+        }
+
+        .task-priority {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .priority-high {
+            background: #dc3545;
+            color: white;
+        }
+
+        .priority-medium {
+            background: #ffc107;
+            color: #212529;
+        }
+
+        .priority-low {
+            background: #28a745;
+            color: white;
+        }
+
+        .task-description {
+            color: #6c757d;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .task-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+
+        .task-actions {
+            display: flex;
+            gap: 5px;
+        }
+
+        .task-btn {
+            padding: 4px 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.7rem;
+            transition: opacity 0.2s ease;
+        }
+
+        .btn-complete {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-delete {
+            background: #dc3545;
+            color: white;
+        }
+
+        .task-btn:hover {
+            opacity: 0.8;
+        }
+
+        .demo-features {
+            background: #e3f2fd;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .demo-features h3 {
+            color: #1976d2;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #2196f3;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item h4 {
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            color: #424242;
+            font-size: 0.9rem;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #5a6268;
+        }
+
+        @media (max-width: 768px) {
+            .task-manager-demo {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-header h1 {
+                font-size: 2rem;
+            }
+
+            .demo-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1>🎯 智能任务管理系统</h1>
+            <p>基于React + Node.js + MongoDB + Socket.io 构建的企业级任务管理解决方案</p>
+        </div>
+
+        <div class="demo-content">
+            <div class="task-manager-demo">
+                <div class="task-input-section">
+                    <h3>➕ 添加新任务</h3>
+                    <form class="task-form" id="taskForm">
+                        <input type="text" placeholder="任务标题" required>
+                        <textarea placeholder="任务描述" rows="3"></textarea>
+                        <select>
+                            <option value="high">🔴 高优先级</option>
+                            <option value="medium" selected>🟡 中优先级</option>
+                            <option value="low">🟢 低优先级</option>
+                        </select>
+                        <input type="date" placeholder="截止日期">
+                        <button type="submit" class="btn-add-task">添加任务</button>
+                    </form>
+                </div>
+
+                <div class="task-list-section">
+                    <h3>📋 任务列表</h3>
+                    <div class="task-filters">
+                        <button class="filter-btn active" data-filter="all">全部</button>
+                        <button class="filter-btn" data-filter="pending">待处理</button>
+                        <button class="filter-btn" data-filter="completed">已完成</button>
+                        <button class="filter-btn" data-filter="high">高优先级</button>
+                    </div>
+                    <div class="task-list" id="taskList">
+                        <!-- 示例任务 -->
+                        <div class="task-item">
+                            <div class="task-header">
+                                <div class="task-title">完成项目需求分析</div>
+                                <span class="task-priority priority-high">高</span>
+                            </div>
+                            <div class="task-description">分析客户需求，制定详细的功能规格说明书</div>
+                            <div class="task-footer">
+                                <span>截止日期: 2024-01-15</span>
+                                <div class="task-actions">
+                                    <button class="task-btn btn-complete">完成</button>
+                                    <button class="task-btn btn-delete">删除</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="task-item">
+                            <div class="task-header">
+                                <div class="task-title">设计数据库架构</div>
+                                <span class="task-priority priority-medium">中</span>
+                            </div>
+                            <div class="task-description">设计用户管理、任务管理、权限控制等核心模块的数据库表结构</div>
+                            <div class="task-footer">
+                                <span>截止日期: 2024-01-20</span>
+                                <div class="task-actions">
+                                    <button class="task-btn btn-complete">完成</button>
+                                    <button class="task-btn btn-delete">删除</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="task-item completed">
+                            <div class="task-header">
+                                <div class="task-title">搭建开发环境</div>
+                                <span class="task-priority priority-low">低</span>
+                            </div>
+                            <div class="task-description">配置React开发环境，安装必要的依赖包</div>
+                            <div class="task-footer">
+                                <span>已完成 ✓</span>
+                                <div class="task-actions">
+                                    <button class="task-btn btn-delete">删除</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-features">
+                <h3>🚀 核心功能特性</h3>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h4>🔄 实时同步</h4>
+                        <p>基于Socket.io实现多用户实时协作，任务状态即时同步</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🧠 智能推荐</h4>
+                        <p>AI算法分析用户习惯，智能推荐任务优先级和时间安排</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>📊 数据分析</h4>
+                        <p>详细的任务完成率统计和团队效率分析报告</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>🔔 智能提醒</h4>
+                        <p>基于截止日期的智能提醒系统，避免任务延误</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>👥 团队协作</h4>
+                        <p>支持任务分配、评论、文件共享等团队协作功能</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>📱 多端同步</h4>
+                        <p>支持Web、移动端应用，数据云端同步</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="../index.html" class="back-btn">← 返回作品集</a>
+        </div>
+    </div>
+
+    <script>
+        // 简单的交互功能演示
+        document.getElementById('taskForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('任务已添加！（演示版本）');
+        });
+
+        // 任务筛选功能
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                alert(`筛选: ${this.textContent}（演示版本）`);
+            });
+        });
+
+        // 任务操作
+        document.querySelectorAll('.task-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const action = this.textContent;
+                const taskTitle = this.closest('.task-item').querySelector('.task-title').textContent;
+                alert(`${action}任务: ${taskTitle}（演示版本）`);
+            });
+        });
+    </script>
+</body>
+
+</html>

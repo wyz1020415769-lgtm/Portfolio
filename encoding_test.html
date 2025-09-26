@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encoding Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+
+        .chinese-text {
+            color: #0066cc;
+            font-size: 18px;
+        }
+
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f0f0f0;
+        }
+
+        .success {
+            color: green;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Character Encoding Test</h1>
+
+    <div class="test-section">
+        <h2>Test 1: Direct Chinese Characters</h2>
+        <p class="chinese-text">你好，世界！欢迎来到我的作品集。</p>
+        <div id="test1-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 2: HTML Entities</h2>
+        <p class="chinese-text">
+            &#20320;&#22909;&#65292;&#19990;&#30028;&#65281;&#27426;&#36814;&#26469;&#21040;&#25105;&#30340;&#20316;&#21697;&#38598;&#12290;
+        </p>
+        <div id="test2-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Browser Information</h2>
+        <div id="browser-info" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Recommendations</h2>
+        <div id="recommendations" class="result"></div>
+    </div>
+
+    <script>
+        function testEncoding() {
+            // Test 1: Direct Chinese characters
+            const test1Element = document.querySelector('.test-section:nth-child(2) p');
+            const test1Text = test1Element.textContent;
+            const test1Result = document.getElementById('test1-result');
+
+            if (test1Text.includes('你好') && test1Text.includes('世界')) {
+                test1Result.innerHTML = '<span class="success">? Direct Chinese characters display correctly</span>';
+            } else {
+                test1Result.innerHTML = '<span class="error">? Direct Chinese characters display incorrectly (showing as boxes or garbled text)</span>';
+            }
+
+            // Test 2: HTML entities
+            const test2Element = document.querySelector('.test-section:nth-child(3) p');
+            const test2Text = test2Element.textContent;
+            const test2Result = document.getElementById('test2-result');
+
+            if (test2Text.includes('你好') && test2Text.includes('世界')) {
+                test2Result.innerHTML = '<span class="success">? HTML entities display correctly</span>';
+            } else {
+                test2Result.innerHTML = '<span class="error">? HTML entities display incorrectly</span>';
+            }
+
+            // Browser info
+            const browserInfo = document.getElementById('browser-info');
+            browserInfo.innerHTML = `
+                <p><strong>User Agent:</strong> ${navigator.userAgent}</p>
+                <p><strong>Browser Language:</strong> ${navigator.language}</p>
+                <p><strong>Document Encoding:</strong> ${document.characterSet || document.charset}</p>
+            `;
+
+            // Recommendations
+            const recommendations = document.getElementById('recommendations');
+            let recText = '<h3>Try these solutions:</h3><ol>';
+
+            if (!test1Text.includes('你好')) {
+                recText += '<li><strong>Use HTML entities version:</strong> Try accessing <a href="index_encoded.html">index_encoded.html</a> instead</li>';
+                recText += '<li><strong>Use English version:</strong> Try accessing <a href="index_english.html">index_english.html</a></li>';
+            }
+
+            recText += '<li><strong>Change browser encoding:</strong> Right-click on page → Encoding → Select UTF-8</li>';
+            recText += '<li><strong>Clear browser cache:</strong> Press Ctrl+F5 to force refresh</li>';
+            recText += '<li><strong>Try different browser:</strong> Test with Chrome, Firefox, or Edge</li>';
+            recText += '</ol>';
+
+            recommendations.innerHTML = recText;
+        }
+
+        // Run test when page loads
+        window.addEventListener('load', testEncoding);
+    </script>
+</body>
+
+</html>
