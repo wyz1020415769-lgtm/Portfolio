@@ -1,61 +1,61 @@
-# Í¼Æ¬×ÊÔ´ËµÃ÷
+# Í¼Æ¬ï¿½ï¿½Ô´Ëµï¿½ï¿½
 
-±¾ÏîÄ¿Ê¹ÓÃµÄËùÓÐÍ¼Æ¬¾ùÀ´×ÔÃâ·ÑÍ¼¿âÍøÕ¾£¬×ñÑ­CC0ÊÚÈ¨Ð­Òé£¬¿É×ÔÓÉÊ¹ÓÃ¡£
+ï¿½ï¿½ï¿½ï¿½Ä¿Ê¹ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½Õ¾ï¿½ï¿½ï¿½ï¿½Ñ­CC0ï¿½ï¿½È¨Ð­ï¿½é£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã¡ï¿½
 
-## Í¼Æ¬À´Ô´
+## Í¼Æ¬ï¿½ï¿½Ô´
 
-### ¸öÈËÍ·Ïñ
+### ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½
 - **URL**: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face
-- **À´Ô´**: Unsplash
-- **¹Ø¼ü´Ê**: professional, portrait, developer, male
-- **ÓÃÍ¾**: ¸öÈË×ÊÁÏÕÕÆ¬
+- **ï¿½ï¿½Ô´**: Unsplash
+- **ï¿½Ø¼ï¿½ï¿½ï¿½**: professional, portrait, developer, male
+- **ï¿½ï¿½Í¾**: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬
 
-### ÏîÄ¿1 - ±à³ÌÏà¹Ø
+### ï¿½ï¿½Ä¿1 - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 - **URL**: https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop
-- **À´Ô´**: Unsplash
-- **¹Ø¼ü´Ê**: programming, coding, computer, development
-- **ÓÃÍ¾**: ÏîÄ¿Õ¹Ê¾Í¼Æ¬
+- **ï¿½ï¿½Ô´**: Unsplash
+- **ï¿½Ø¼ï¿½ï¿½ï¿½**: programming, coding, computer, development
+- **ï¿½ï¿½Í¾**: ï¿½ï¿½Ä¿Õ¹Ê¾Í¼Æ¬
 
-### ÏîÄ¿2 - ÒÆ¶¯Ó¦ÓÃ
+### ï¿½ï¿½Ä¿2 - ï¿½Æ¶ï¿½Ó¦ï¿½ï¿½
 - **URL**: https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=400&h=250&fit=crop
-- **À´Ô´**: Unsplash
-- **¹Ø¼ü´Ê**: mobile, app, smartphone, technology
-- **ÓÃÍ¾**: ÒÆ¶¯Ó¦ÓÃÏîÄ¿Õ¹Ê¾
+- **ï¿½ï¿½Ô´**: Unsplash
+- **ï¿½Ø¼ï¿½ï¿½ï¿½**: mobile, app, smartphone, technology
+- **ï¿½ï¿½Í¾**: ï¿½Æ¶ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½Ä¿Õ¹Ê¾
 
-### ÏîÄ¿3 - Êý¾Ý·ÖÎö
+### ï¿½ï¿½Ä¿3 - ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ï¿½
 - **URL**: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop
-- **À´Ô´**: Unsplash
-- **¹Ø¼ü´Ê**: data, analytics, dashboard, business
-- **ÓÃÍ¾**: Êý¾Ý·ÖÎöÏîÄ¿Õ¹Ê¾
+- **ï¿½ï¿½Ô´**: Unsplash
+- **ï¿½Ø¼ï¿½ï¿½ï¿½**: data, analytics, dashboard, business
+- **ï¿½ï¿½Í¾**: ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Õ¹Ê¾
 
-## Í¼Æ¬²ÎÊýËµÃ÷
+## Í¼Æ¬ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½
 
-ËùÓÐÍ¼Æ¬URL¶¼°üº¬ÒÔÏÂ²ÎÊý£º
-- `w`: ¿í¶È£¨ÏñËØ£©
-- `h`: ¸ß¶È£¨ÏñËØ£©
-- `fit=crop`: ²Ã¼ôÊÊÅä
-- `crop=face`: Ãæ²¿Ê¶±ð²Ã¼ô£¨½öÍ·Ïñ£©
+ï¿½ï¿½ï¿½ï¿½Í¼Æ¬URLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â²ï¿½ï¿½ï¿½ï¿½ï¿½
+- `w`: ï¿½ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½Ø£ï¿½
+- `h`: ï¿½ß¶È£ï¿½ï¿½ï¿½ï¿½Ø£ï¿½
+- `fit=crop`: ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½
+- `crop=face`: ï¿½æ²¿Ê¶ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½
 
-## Ãâ·ÑÍ¼¿âÍÆ¼ö
+## ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½Æ¼ï¿½
 
 ### Unsplash (https://unsplash.com)
-- ¸ßÖÊÁ¿ÉãÓ°×÷Æ·
-- CC0ÊÚÈ¨£¬¿É×ÔÓÉÊ¹ÓÃ
-- ÎÞÐèÊðÃû£¨µ«½¨ÒéÊðÃû£©
+- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó°ï¿½ï¿½Æ·
+- CC0ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
+- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 ### Pexels (https://pexels.com)
-- Ãâ·ÑÕÕÆ¬ºÍÊÓÆµ
-- ÉÌÒµÊ¹ÓÃÓÑºÃ
-- ËÑË÷¹¦ÄÜÇ¿´ó
+- ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬ï¿½ï¿½ï¿½ï¿½Æµ
+- ï¿½ï¿½ÒµÊ¹ï¿½ï¿½ï¿½Ñºï¿½
+- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½
 
-### ÆäËûÍÆ¼ö
-- **Pixabay**: Ãâ·ÑÍ¼Æ¬¡¢²å»­¡¢Ê¸Á¿Í¼
-- **Gratisography**: ´´Òâ·ç¸ñÍ¼Æ¬
-- **Burst by Shopify**: µçÉÌÓÑºÃÍ¼Æ¬
+### ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½
+- **Pixabay**: ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½å»­ï¿½ï¿½Ê¸ï¿½ï¿½Í¼
+- **Gratisography**: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
+- **Burst by Shopify**: ï¿½ï¿½ï¿½ï¿½ï¿½Ñºï¿½Í¼Æ¬
 
-## Ê¹ÓÃ½¨Òé
+## Ê¹ï¿½Ã½ï¿½ï¿½ï¿½
 
-1. **Í¼Æ¬ÓÅ»¯**: ¸ù¾ÝÊµ¼ÊÐèÒªµ÷Õû³ß´ç²ÎÊý
-2. **¼ÓÔØËÙ¶È**: Ê¹ÓÃÊÊµ±µÄ³ß´çÒÔÓÅ»¯Ò³Ãæ¼ÓÔØ
-3. **±¸ÓÃ·½°¸**: ±£´æÖØÒªÍ¼Æ¬µÄ±¾µØ¸±±¾
-4. **°æÈ¨ÉùÃ÷**: ËäÈ»CC0ÊÚÈ¨£¬µ«½¨Òé±£ÁôÍ¼Æ¬À´Ô´ÐÅÏ¢
+1. **Í¼Æ¬ï¿½Å»ï¿½**: ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ß´ï¿½ï¿½ï¿½ï¿½
+2. **ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½**: Ê¹ï¿½ï¿½ï¿½Êµï¿½ï¿½Ä³ß´ï¿½ï¿½ï¿½ï¿½Å»ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½
+3. **ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½**: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÍ¼Æ¬ï¿½Ä±ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½
+4. **ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½**: ï¿½ï¿½È»CC0ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é±£ï¿½ï¿½Í¼Æ¬ï¿½ï¿½Ô´ï¿½ï¿½Ï¢
