@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MongoDB���ݹ������� - ��ʾ</title>
+    <title>MongoDB数据管理工具 - 演示</title>
     <style>
         * {
             margin: 0;
@@ -252,132 +252,132 @@
     </style>
 </head>
 <body>
-    <a href="../index.html" class="back-btn">�� ������Ʒ��</a>
+    <a href="../index.html" class="back-btn">← 返回作品集</a>
     
     <div class="container">
         <div class="header">
-            <h1>?? MongoDB���ݹ�������</h1>
-            <p>��ҵ��MongoDB���ݿ�����ͼ��ƽ̨</p>
+            <h1>🗄️ MongoDB数据管理工具</h1>
+            <p>企业级MongoDB数据库管理和监控平台</p>
         </div>
 
         <div class="dashboard">
             <div class="card">
-                <h3>? ���ݿ�״̬</h3>
+                <h3>📊 数据库状态</h3>
                 <div class="metric">
                     <span class="metric-label">
                         <span class="status-indicator status-online"></span>
-                        ����״̬
+                        连接状态
                     </span>
-                    <span class="metric-value">����</span>
+                    <span class="metric-value">在线</span>
                 </div>
                 <div class="metric">
-                    <span class="metric-label">���ݿ�����</span>
+                    <span class="metric-label">数据库数量</span>
                     <span class="metric-value">12</span>
                 </div>
                 <div class="metric">
-                    <span class="metric-label">��������</span>
+                    <span class="metric-label">集合总数</span>
                     <span class="metric-value">156</span>
                 </div>
                 <div class="metric">
-                    <span class="metric-label">�ĵ�����</span>
+                    <span class="metric-label">文档总数</span>
                     <span class="metric-value">2.3M</span>
                 </div>
                 <div class="metric">
-                    <span class="metric-label">�洢��С</span>
+                    <span class="metric-label">存储大小</span>
                     <span class="metric-value">8.7GB</span>
                 </div>
             </div>
 
             <div class="card">
-                <h3>? ����ָ��</h3>
+                <h3>⚡ 性能指标</h3>
                 <div class="metric">
-                    <span class="metric-label">��ѯ��Ӧʱ��</span>
+                    <span class="metric-label">查询响应时间</span>
                     <span class="metric-value">45ms</span>
                 </div>
                 <div class="metric">
-                    <span class="metric-label">ÿ���ѯ��</span>
+                    <span class="metric-label">每秒查询数</span>
                     <span class="metric-value warning">1,247</span>
                 </div>
                 <div class="metric">
-                    <span class="metric-label">�ڴ�ʹ����</span>
+                    <span class="metric-label">内存使用率</span>
                     <span class="metric-value">68%</span>
                 </div>
                 <div class="metric">
-                    <span class="metric-label">CPUʹ����</span>
+                    <span class="metric-label">CPU使用率</span>
                     <span class="metric-value warning">82%</span>
                 </div>
                 <div class="metric">
-                    <span class="metric-label">����I/O</span>
+                    <span class="metric-label">磁盘I/O</span>
                     <span class="metric-value danger">95%</span>
                 </div>
             </div>
         </div>
 
         <div class="operations">
-            <h3>? ���ݿ����</h3>
+            <h3>🔧 数据库操作</h3>
             <div class="btn-group">
-                <button class="btn btn-primary" onclick="performOperation('backup')">? ���ݱ���</button>
-                <button class="btn btn-success" onclick="performOperation('restore')">? ���ݻָ�</button>
-                <button class="btn btn-warning" onclick="performOperation('optimize')">?? �����Ż�</button>
-                <button class="btn btn-info" onclick="performOperation('monitor')">? ʵʱ���</button>
-                <button class="btn btn-primary" onclick="performOperation('import')">? ���ݵ���</button>
-                <button class="btn btn-success" onclick="performOperation('export')">? ���ݵ���</button>
+                <button class="btn btn-primary" onclick="performOperation('backup')">💾 数据备份</button>
+                <button class="btn btn-success" onclick="performOperation('restore')">📥 数据恢复</button>
+                <button class="btn btn-warning" onclick="performOperation('optimize')">⚙️ 性能优化</button>
+                <button class="btn btn-info" onclick="performOperation('monitor')">📈 实时监控</button>
+                <button class="btn btn-primary" onclick="performOperation('import')">📤 数据导入</button>
+                <button class="btn btn-success" onclick="performOperation('export')">📋 数据导出</button>
             </div>
         </div>
 
         <div class="card">
-            <h3>? ���Ĺ�������</h3>
+            <h3>🌟 核心功能特性</h3>
             <div class="features">
                 <div class="feature-card">
-                    <div class="feature-icon">?</div>
-                    <div class="feature-title">��Ⱥ����</div>
-                    <div class="feature-desc">֧��MongoDB�������ͷ�Ƭ��Ⱥ��ͳһ�������ṩ�ڵ�״̬��غ͹����Զ��л�</div>
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-title">集群管理</div>
+                    <div class="feature-desc">支持MongoDB副本集和分片集群的统一管理，提供节点状态监控和故障自动切换</div>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">?</div>
-                    <div class="feature-title">���ܼ��</div>
-                    <div class="feature-desc">ʵʱ������ݿ�����ָ�꣬������ѯ��Ӧʱ�䡢�ڴ�ʹ���ʡ��������ȹؼ�ָ��</div>
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">性能监控</div>
+                    <div class="feature-desc">实时监控数据库性能指标，包括查询响应时间、内存使用率、连接数等关键指标</div>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">?</div>
-                    <div class="feature-title">�����Ż�</div>
-                    <div class="feature-desc">���ܷ�����ѯģʽ���Ƽ������������ԣ��Զ��������ѯ���ṩ�Ż�����</div>
+                    <div class="feature-icon">🔍</div>
+                    <div class="feature-title">索引优化</div>
+                    <div class="feature-desc">智能分析查询模式，推荐最优索引策略，自动检测慢查询并提供优化建议</div>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">??</div>
-                    <div class="feature-title">���ݰ�ȫ</div>
-                    <div class="feature-desc">�ṩ���ݼ��ܡ����ʿ��ơ������־�Ȱ�ȫ���ܣ�ȷ�����ݰ�ȫ�ͺϹ���</div>
+                    <div class="feature-icon">🛡️</div>
+                    <div class="feature-title">数据安全</div>
+                    <div class="feature-desc">提供数据加密、访问控制、审计日志等安全功能，确保数据安全和合规性</div>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">?</div>
-                    <div class="feature-title">���ӻ�����</div>
-                    <div class="feature-desc">�ṩֱ�۵����ݷֲ�ͼ������ѯ��������ͼ���������ٶ�λ����ƿ��</div>
+                    <div class="feature-icon">📈</div>
+                    <div class="feature-title">可视化分析</div>
+                    <div class="feature-desc">提供直观的数据分布图表、查询性能趋势图，帮助快速定位性能瓶颈</div>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">?</div>
-                    <div class="feature-title">�Զ�����ά</div>
-                    <div class="feature-desc">֧�ֶ�ʱ���ݡ��Զ����ݡ������������Զ�����ά���ܣ�������ά�ɱ�</div>
+                    <div class="feature-icon">🔄</div>
+                    <div class="feature-title">自动化运维</div>
+                    <div class="feature-desc">支持定时备份、自动扩容、故障自愈等自动化运维功能，降低运维成本</div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // ģ�����ݿ����
+        // 模拟数据库操作
         function performOperation(operation) {
             const messages = {
-                backup: '����ִ�����ݱ���...',
-                restore: '����ִ�����ݻָ�...',
-                optimize: '�����Ż����ݿ�����...',
-                monitor: '��������ʵʱ���...',
-                import: '���ڵ�������...',
-                export: '���ڵ�������...'
+                backup: '正在执行数据备份...',
+                restore: '正在执行数据恢复...',
+                optimize: '正在优化数据库性能...',
+                monitor: '正在启动实时监控...',
+                import: '正在导入数据...',
+                export: '正在导出数据...'
             };
             
-            alert(`${messages[operation]}\n\n����MongoDB���ݹ������ߵ���ʾ�汾��ʵ�ʲ�����Ҫ����ʵ�����н��С�`);
+            alert(`${messages[operation]}\n\n这是MongoDB数据管理工具的演示版本，实际操作需要在真实环境中进行。`);
         }
 
-        // ģ��ʵʱ���ݸ���
+        // 模拟实时数据更新
         function updateMetrics() {
             const metrics = document.querySelectorAll('.metric-value');
             metrics.forEach(metric => {
@@ -400,14 +400,14 @@
             });
         }
 
-        // ÿ5�����һ��ָ��
+        // 每5秒更新一次指标
         setInterval(updateMetrics, 5000);
 
-        // ҳ�������ɺ�ĳ�ʼ��
+        // 页面加载完成后的初始化
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('MongoDB���ݹ���������ʾҳ���Ѽ���');
+            console.log('MongoDB数据管理工具演示页面已加载');
             
-            // ����һЩ����Ч��
+            // 添加一些动画效果
             const cards = document.querySelectorAll('.card, .feature-card');
             cards.forEach((card, index) => {
                 card.style.opacity = '0';
